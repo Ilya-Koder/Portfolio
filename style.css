@@ -53,14 +53,14 @@
     padding: 0.5rem 1rem;
     margin-bottom: 10px;
   }
-  .intro {
+  .hero {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding: 1rem;
   }
-  .intro button {
+  .hero button {
     font-size: 1.5rem;
     padding: 1rem 2rem;
     background-color: light-dark(var(--accent-light), var(--accent-dark));
@@ -166,6 +166,7 @@ h1 {
   font-size: 2rem;
   height: 100px;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .navbar a {
@@ -191,10 +192,10 @@ h1 {
   height: 85vh;
   padding: 2rem;
   grid-template-areas:
-    "intro intro hero-image"
-    "intro intro hero-image"
-    "intro-btn . ."
-    ". languages .";
+    "hero hero hero-image"
+    "hero hero hero-image"
+    "hero-btn . ."
+    ". languages ."; /*coding languages to be added*/
 }
 
 .intro h1,
@@ -205,22 +206,22 @@ h2 {
 .intro h2 {
   color: light-dark(var(--accent-light), var(--accent-dark));
 }
-.intro {
-  grid-area: intro;
+.hero {
+  grid-area: hero;
   width: 60%;
   padding: 3rem;
 }
 
-.intro b {
+.hero b {
   line-height: 5rem;
 }
 
-.intro button a {
+.hero button a {
   padding: 1rem 2rem;
   display: grid;
-  grid-area: intro-btn;
+  grid-area: hero-btn;
 }
-.intro button a {
+.hero button a {
   font-size: 1.5rem;
   padding: 1rem 2rem;
   text-decoration: none;
@@ -272,6 +273,21 @@ section {
   min-height: 50vh;
   width: 48%;
 }
+#portfolio {
+  display: flex;
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
 #portfolio img {
   padding: 1rem;
+}
+.contact {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  width: 100%;
 }
