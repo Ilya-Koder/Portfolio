@@ -1,234 +1,318 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-/* Standard color variations for light-dark() */
 :root {
-  color-scheme: light dark;
   /* light color scheme */
   --accent-light: #4c5760ff;
   --nav-bg-light: #93a8acff;
+  --darker-contrast: hsla(207, 12%, 34%, 1);
   --bg-light: #d7ceb2ff;
   --khaki: #a59e8cff;
-  --darker-accent-light: #66635bff;
+  --darker-accent-light: #66635b;
   --text-light: #000000;
-  /* dark color scheme */
-  --nav-bg-dark: #435468ff;
-  --accent-dark: #2e404aff;
-  --bg-dark: #72585fff;
-  --darker-accent-dark: #926582ff;
-  --iris: #5f4dcaff;
-  --text-dark: #ffffff;
 }
-
-/* Mobile View Styles */
-@media (max-width: 480px) {
-  .navbar {
-    height: auto;
-    background-color: var(--bg-light);
-    color: var(--text-light);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    flex-wrap: wrap;
-    height: fit-content;
-    padding: 10px;
-  }
-
-  .navbar a {
-    display: none;
-  }
-
-  /* Hero styles for smaller screens */
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .navbar a {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    margin-bottom: 10px;
-  }
-  .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1rem;
-  }
-  .hero button {
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-    background-color: light-dark(var(--accent-light), var(--accent-dark));
-    color: light-dark(var(--text-light), var(--text-dark));
-    border-radius: 8px;
-    width: auto;
-    display: inline-block;
-    white-space: nowrap;
-    text-align: center;
-  }
-
-  #about-me-container,
-  #education-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: auto;
-  }
-
-  #about-me,
-  #education {
-    width: 80%;
-    padding: 0.5rem;
-    margin: 0.5rem 0;
-    justify-content: center;
-  }
-
-  img {
-    width: 60vw;
-    height: auto;
-  }
-
-  #home {
-    padding: 1.5rem;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .hero-img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-  }
-  #portfolio {
-    display: flex;
-    width: auto;
-    display: inline-block;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-
-/* Desktop View Styles */
-
-/* Main styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: light-dark(var(--bg-light), var(--bg-dark));
-  color: light-dark(var(--text-light), var(--text-dark));
-}
-
-/* Default text styles */
-
-h1,
-p {
-  padding: 2rem;
-}
-p {
   font-family: "Roboto", sans-serif;
 }
-h1 {
-  font-family: "Righteous", sans-serif, "Segoe UI", Tahoma, Geneva, sans-serif;
+/* definerer hovud bakgrunnsfarge */
+body {
+  background-color: var(--bg-light);
 }
-/* Navbar styles */
+/* Navbar */
 .navbar {
+  display: flex;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  background-color: light-dark(var(--nav-bg-light), var(--nav-bg-dark));
-  color: light-dark(var(--text-light), var(--text-dark));
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-evenly; */
   align-items: center;
-  width: 100vw;
-  font-size: 2rem;
-  height: 100px;
-  gap: 2rem;
-  flex-wrap: wrap;
+  background-color: var(--nav-bg-light);
+  color: white;
+  padding: 10px 20px;
 }
 
 .navbar a {
+  color: white;
   text-decoration: none;
-  flex-direction: row;
-  padding: 1rem 2rem;
-  background-color: light-dark(var(--accent-light), var(--accent-dark));
-  color: light-dark(var(--text-light), var(--text-dark));
-  border-radius: 10px;
-  font-size: 2rem;
-  list-style: none;
-  justify-items: right;
-  align-self: center;
+  margin-left: 25px;
+  font-size: 1.2rem;
+  background-color: var(--darker-contrast);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
 }
+
 .navbar h1 {
-  justify-self: left;
+  color: var(--text-light);
+  font-weight: 700;
+  float: left;
+}
+.button-wrapper {
+  float: right;
 }
 
-/* Home/hero/portfolio styles */
-#home {
-  display: grid;
-  width: 80%;
-  height: 85vh;
-  padding: 2rem;
-  grid-template-areas:
-    "hero hero hero-image"
-    "hero hero hero-image"
-    "hero-btn . ."
-    ". languages ."; /*coding languages to be added*/
+/* Background Shapes
+.background-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
+#square-wrapper {
+  position: relative;
+}
+
+.square-1,
+.square-2,
+.square-3,
+.square-4 {
+  /* Add styles for the squares */
+/* .page-content {
+  width: 100%;
+  height: 100%;
+} */
+
+/* tekst seksjon */
+.hero {
+  text-align: center;
+  padding: 50px;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  color: #4c5760;
+  text-align: center;
+  font-family: "Righteous";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.hero p {
+  color: #000;
+  font-family: Roboto;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 .intro h1,
 h2 {
   display: flex;
   flex-direction: column;
+  padding: 5px;
 }
 .intro h2 {
-  color: light-dark(var(--accent-light), var(--accent-dark));
+  color: var(--accent-light);
+}
+
+/* hero/heim styling */
+.hero-btn {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: var(--accent-light);
+  color: var(--text-light);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+#heim {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 85vh;
+  grid-template-areas:
+    "hero hero hero-image"
+    "hero hero hero-image"
+    "hero-btn . .";
 }
 .hero {
   grid-area: hero;
-  width: 60%;
-  padding: 3rem;
+  width: 100%;
+  padding: 1rem;
+  height: 80%;
 }
 
-.hero b {
-  line-height: 5rem;
-}
-
-.hero button a {
-  padding: 1rem 2rem;
-  display: grid;
-  grid-area: hero-btn;
-}
-.hero button a {
-  font-size: 1.5rem;
-  padding: 1rem 2rem;
+.hero-btn a {
   text-decoration: none;
-  background-color: light-dark(var(--accent-light), var(--accent-dark));
-  color: light-dark(var(--text-light), var(--text-dark));
+  color: white;
 }
 
+.hero-btn {
+  text-decoration: none;
+  flex-direction: row;
+  padding: 1rem 2rem;
+  background-color: var(--accent-light);
+  border-radius: 10px;
+  border: none;
+  font-size: 2rem;
+  list-style: none;
+  align-self: center;
+}
+
+.hero-img {
+  grid-area: hero-image;
+  margin-right: 5rem;
+  border-radius: 3rem;
+}
+
+/* Main Container for om meg og erfarings sekjson */
+.container {
+  padding: 20px;
+  display: grid;
+  grid-template-areas: "om-meg kvalifikasjoner";
+  width: 100%;
+  margin-block: 2rem;
+}
+/* Om meg seksjon */
+.om-meg-overskrift {
+  text-align: center;
+  font-family: "Righteous";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin: 2rem;
+  color: var(--accent-light);
+}
+#om-meg,
+#kvalifikasjoner {
+  grid-area: om-meg;
+  width: 95%;
+  padding: 1rem;
+  background-color: var(--darker-accent-light);
+  color: white;
+  border-radius: 5px;
+}
+#om-meg {
+  grid-area: om-meg;
+}
+#om-meg h2,
+#kvalifikasjoner h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 32px;
+}
+#om-meg p,
+#kvalifikasjoner p {
+  line-height: 1.6;
+  font-size: 1.3rem;
+}
+
+#kvalifikasjoner {
+  grid-area: kvalifikasjoner;
+}
+#kvalifikasjoner ul,
+li {
+  list-style-type: none;
+  padding-bottom: 1rem;
+}
+/* Icon under utdanning */
+.diploma {
+  justify-self: right;
+}
+/* kode språk svg */
+.språk {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+/* Prosjekt seksjon styling */
+
+#prosjekter {
+  padding: 1rem;
+  margin-top: 2rem;
+  display: grid;
+  grid: 1fr, 1fr;
+  grid-template-areas: "kort-1 bilde-1", "bilde-2 kort-2", "kort-3 bilde-3";
+  max-width: 100%;
+  justify-items: center;
+}
+
+/* Grid for prosjekter *:child funkerte ikkje her */
+#kort-1,
+#kort-2,
+#kort-3 {
+  padding-bottom: 1rem;
+  width: 48vw;
+  background-color: var(--darker-accent-light);
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  color: white;
+}
+#kort-1 {
+  grid-area: kort-1;
+}
+#kort-2 {
+  grid-area: kort-2;
+}
+#kort-3 {
+  grid-area: kort-3;
+}
+
+.bilde-1 {
+  grid-area: bilde-1;
+}
+.bilde-2 {
+  grid-area: bilde-2;
+}
+.bilde-3 {
+  grid-area: bilde-3;
+}
+
+/* tekst styling */
+#prosjekter h1 {
+  color: #4c5760;
+  text-align: center;
+  font-family: "Righteous";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 2rem;
+}
+#prosjekter p {
+  font-weight: 500;
+}
+#prosjekter h2 {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+/* knapper for github */
+#prosjekter button a {
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  color: white;
+  font-size: medium;
+  border-radius: 10px;
+}
+#prosjekter button {
+  justify-self: center;
+  max-width: fit-content;
+  background-color: var(--accent-light);
+  padding: 1rem 0rem;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+#prosjekter img {
+  max-width: 100%;
+}
+
+/* Img styling */
+img {
+  max-width: 48vw; /*minimerer overfyll*/
+  max-height: 48vh;
+}
 a img {
   border-radius: 8px;
   transition: transform 0.3s ease;
@@ -238,56 +322,47 @@ a:hover img {
   transform: scale(1.1);
 }
 
-section {
-  width: 80%;
+/* Kontakt seksjon */
+.kontakt-meg {
+  justify-self: center;
+}
+.kontakt-meg h3 {
+  font-weight: 500;
+}
+.kontakt-meg h2 {
+  font-family: "Righteous";
+  font-weight: 650;
+  font-size: large;
+  text-align: center;
 }
 
-.hero-img {
-  grid-area: hero-image;
-  border-radius: 3rem;
+/* dekorativ linje */
+.linje {
+  border-bottom: hsla(43, 12%, 60%, 1) dashed 5px;
 }
 
-#about-me-container, /* Container for side by side sections (to be made at later time as my skills progress)*/
-#education-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  width: 100%;
-  flex-wrap: wrap;
-}
-#about-me,
-#education {
-  flex: 1;
-  padding: 1rem 2rem;
-  background-color: light-dark(
-    var(--darker-accent-light),
-    var(--darker-accent-dark)
-  );
-  color: light-dark(var(--text-light), var(--text-dark));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  border-radius: 4rem;
-  min-height: 50vh;
-  width: 48%;
-}
-#portfolio {
-  display: flex;
-  width: auto;
-  display: inline-block;
+footer {
   text-align: center;
-  justify-content: center;
-  align-items: center;
+  padding-bottom: 1rem;
 }
-#portfolio img {
-  padding: 1rem;
-}
-.contact {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  text-align: center;
-  width: 100%;
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar a {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.5rem;
+  }
+
+  .hero {
+    padding: 30px 0;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
 }
